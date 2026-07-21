@@ -3,10 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lumen — a scroll-driven Lottie animation demo." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Lumen — scroll demo</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="progress" data-progress aria-hidden="true"></div>
+
+      <header class="section hero" data-hero>
+        <div class="hero__copy">
+          <h1 data-hero-heading>Focus, made ambient.</h1>
+          <p data-hero-subhead>
+            Lumen turns deep work into a calm, guided ritual — momentum builds
+            while distraction quietly fades.
+          </p>
+          <span class="scroll-cue" data-hero-cue>Scroll to explore ↓</span>
+        </div>
+        <div class="hero__art" data-hero-art aria-hidden="true"></div>
+      </header>
+
+      <section class="scrollstory" data-scrollstory aria-label="How Lumen works">
+        <div class="scrollstory__stage" data-scrollstory-stage>
+          <div class="scrollstory__art" data-scrollstory-art aria-hidden="true"></div>
+          <div class="scrollstory__captions">
+            <p class="scrollstory__caption" data-caption="0">A session begins. The world goes quiet.</p>
+            <p class="scrollstory__caption" data-caption="1">Focus deepens as minutes fold into flow.</p>
+            <p class="scrollstory__caption" data-caption="2">You surface — the work is done.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveals" data-reveals aria-label="Features">
+        <div class="reveals__grid">
+          <article class="card" data-reveal>
+            <div class="card__index">01</div>
+            <h3>Guided sessions</h3>
+            <p>Structured focus blocks that begin and end with intention.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card__index">02</div>
+            <h3>Ambient soundscapes</h3>
+            <p>Adaptive audio that settles the mind without demanding it.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="card__index">03</div>
+            <h3>Quiet analytics</h3>
+            <p>Gentle reflection on your momentum — never a scoreboard.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outro" data-outro aria-label="Get started">
+        <div class="outro__art" data-outro-art aria-hidden="true"></div>
+        <h2>Deep work, on repeat.</h2>
+        <p>Build a focus practice that compounds.</p>
+        <a class="cta" href="#" data-cta>Start a session</a>
+      </section>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -1,0 +1,187 @@
+#app {
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--side-pad);
+}
+
+/* ---------- Progress bar ---------- */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 100;
+  will-change: transform;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.hero__copy h1 {
+  margin-bottom: var(--space-4);
+}
+
+.hero__copy p {
+  max-width: 40ch;
+  margin-bottom: var(--space-6);
+}
+
+.hero__art {
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: var(--space-8);
+  }
+  .hero__art {
+    max-width: 320px;
+    order: -1;
+  }
+}
+
+/* ---------- Scroll story (the scrubbed section) ---------- */
+.scrollstory {
+  position: relative;
+  min-height: 300vh;
+}
+
+.scrollstory__stage {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-6);
+  padding-inline: var(--side-pad);
+}
+
+.scrollstory__art {
+  width: min(560px, 80vw);
+  aspect-ratio: 1;
+}
+
+.scrollstory__captions {
+  position: relative;
+  width: 100%;
+  max-width: 42ch;
+  height: 4rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.scrollstory__caption {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 500;
+  color: var(--fg);
+}
+
+@media (max-width: 760px) {
+  /* Shorter pin runway on mobile so the scrub is not exhausting. */
+  .scrollstory {
+    min-height: 240vh;
+  }
+}
+
+/* ---------- Reveal cards ---------- */
+.reveals {
+  padding-block: var(--space-8);
+}
+
+.reveals__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+}
+
+.card__index {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.card h3 {
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 760px) {
+  .reveals__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Outro / CTA ---------- */
+.outro {
+  min-height: 90vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+}
+
+.outro__art {
+  width: min(260px, 60vw);
+  aspect-ratio: 1;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Lottie fallback ---------- */
+.lottie-fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 160px;
+  padding: var(--space-4);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
