@@ -35,18 +35,21 @@ export function initScrollStory(): void {
   if (!anim) {
     collapse();
     showFinalState();
+    refresh();
     return;
   }
 
   anim.addEventListener('data_failed', () => {
     collapse();
     showFinalState();
+    refresh();
   });
 
   if (prefersReducedMotion) {
     anim.addEventListener('DOMLoaded', () => {
       anim.goToAndStop(anim.totalFrames - 1, true);
       showFinalState();
+      collapse();
       refresh();
     });
     return;
