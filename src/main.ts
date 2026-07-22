@@ -1,9 +1,13 @@
 import './styles/base.css';
 import './styles/latent.css';
 
-/** Boots the microsite. Section wiring is added in Tasks 4–6. */
+import { initRail } from './sections/rail';
+import { initHero } from './sections/hero';
+
+/** Boots the microsite. */
 function boot(): void {
-  // sections wired in subsequent tasks
+  initRail();
+  initHero();
 }
 
 boot();

@@ -3,6 +3,8 @@ import lottie, { type AnimationItem } from 'lottie-web';
 interface LottieOptions {
   loop: boolean;
   autoplay: boolean;
+  /** When false, do not render the labelled placeholder on failure (caller keeps its own visual). Default true. */
+  fallback?: boolean;
 }
 
 /** Prefix a public-folder relative path with Vite's configured base so
@@ -32,13 +34,13 @@ export function createLottie(
     });
 
     anim.addEventListener('data_failed', () => {
-      renderFallback(container, path);
+      if (opts.fallback !== false) renderFallback(container, path);
       console.warn(`Lottie failed to load: ${path}`);
     });
 
     return anim;
   } catch (err) {
-    renderFallback(container, path);
+    if (opts.fallback !== false) renderFallback(container, path);
     console.warn(`Lottie threw while loading: ${path}`, err);
     return null;
   }
