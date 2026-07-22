@@ -1237,13 +1237,13 @@ export function initOutro(): void {
 }
 ```
 
-- [ ] **Step 3: Delete the obsolete top-bar progress module**
+- [ ] **Step 3: Delete the obsolete modules and stylesheet**
 
 ```bash
-git rm src/sections/progress.ts
+git rm src/sections/progress.ts src/styles/layout.css
 ```
 
-(The sprocket rail from Task 4 replaces it; the design has no top progress bar.)
+(The sprocket rail from Task 4 replaces the old top progress bar; `layout.css` was the old light-on-dark stylesheet — `main.ts` now imports `base.css` + `latent.css`, so it is dead code.)
 
 - [ ] **Step 4: Finalize `src/main.ts`**
 
