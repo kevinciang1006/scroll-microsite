@@ -390,3 +390,179 @@
     gap: clamp(20px, 5vh, 36px);
   }
 }
+
+/* ---- Contact sheet ---- */
+.contact {
+  position: relative;
+  box-sizing: border-box;
+  padding: clamp(80px, 14vh, 160px) var(--pad-x) clamp(90px, 16vh, 180px) var(--pad-left);
+}
+.contact__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+.contact__head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: clamp(34px, 6vh, 58px);
+  flex-wrap: wrap;
+}
+.contact__kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--fixer);
+}
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: clamp(14px, 2vw, 26px);
+}
+.exposure {
+  margin: 0;
+}
+.exposure__frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--ink-raise);
+  border: 1px solid rgba(147, 167, 174, 0.22);
+  padding: 7px;
+  box-sizing: border-box;
+}
+.exposure__window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1613;
+}
+.exposure__no {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: var(--ink);
+  padding: 0 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--safelight);
+}
+.exposure__exif {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--fixer);
+}
+
+/* ---- Outro ---- */
+.outro {
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: clamp(70px, 12vh, 130px) var(--pad-x) clamp(70px, 12vh, 130px) var(--pad-left);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.outro__glow {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 760px);
+  height: min(70vw, 760px);
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(242, 121, 43, 0.24), rgba(242, 121, 43, 0.06) 50%, transparent 72%);
+  filter: blur(6px);
+}
+.outro__print {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 440px);
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(147, 167, 174, 0.3);
+  padding: 10px;
+  box-sizing: border-box;
+  background: var(--ink-deep);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+}
+.outro__print-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.outro__art {
+  position: absolute;
+  inset: 0;
+}
+.outro__edition {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin-top: clamp(36px, 6vh, 56px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--fixer);
+}
+.outro__title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: clamp(16px, 3vh, 28px) 0 0;
+  max-width: 16ch;
+}
+.outro__cta {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(34px, 6vh, 52px);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--paper);
+  padding: 15px 26px;
+  border: 1px solid rgba(147, 167, 174, 0.35);
+  border-radius: 2px;
+  background: transparent;
+  transition: border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.outro__cta:hover {
+  border-color: rgba(242, 121, 43, 0.9);
+  color: var(--safelight);
+  box-shadow: 0 0 30px rgba(242, 121, 43, 0.28);
+}
+.outro__cta:focus-visible {
+  outline: 2px solid var(--safelight);
+  outline-offset: 3px;
+  color: var(--safelight);
+}
+.outro__footer {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(50px, 10vh, 90px);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(147, 167, 174, 0.55);
+}
