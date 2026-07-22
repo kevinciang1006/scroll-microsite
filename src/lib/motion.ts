@@ -15,3 +15,6 @@ export const prefersReducedMotion = window.matchMedia(
 export function refresh(): void {
   ScrollTrigger.refresh();
 }
+
+/** Sequence length for the darkroom frame counters (rail + develop). */
+export const FRAME_COUNT = 120;

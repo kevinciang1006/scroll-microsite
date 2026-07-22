@@ -1,0 +1,117 @@
+.latent-root {
+  position: relative;
+  background: var(--ink);
+}
+
+/* ---- Film grain ---- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: drift 5s steps(4) infinite;
+}
+
+/* ---- Sprocket rail ---- */
+.rail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--rail-w);
+  z-index: 80;
+  background: var(--ink-raise);
+  border-right: 1px solid rgba(147, 167, 174, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.rail__perf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 12px,
+    rgba(147, 167, 174, 0.14) 12px 26px,
+    transparent 26px 30px
+  );
+  border-radius: 2px;
+}
+.rail__perf--l { left: 14px; }
+.rail__perf--r { right: 14px; }
+.rail__fill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 0%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(242, 121, 43, 0.9), rgba(242, 121, 43, 0.15));
+  box-shadow: 0 0 10px 1px rgba(242, 121, 43, 0.5);
+}
+.rail__badge {
+  position: relative;
+  z-index: 2;
+  background: var(--ink);
+  border: 1px solid rgba(147, 167, 174, 0.25);
+  border-radius: 4px;
+  padding: 9px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 18px rgba(20, 18, 16, 0.9);
+}
+.rail__label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--fixer);
+}
+.rail__num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--paper);
+}
+
+/* ---- Reveal primitive (used by contact + outro; styled here, wired in Task 6) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Lottie fallback (fits the darkroom frame look) ---- */
+.lottie-fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border: 1px dashed rgba(147, 167, 174, 0.3);
+  background: var(--ink-raise);
+  color: var(--fixer);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.latent-main {
+  position: relative;
+  z-index: 1;
+}

@@ -3,72 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Lumen — a scroll-driven Lottie animation demo." />
+    <meta name="description" content="Latent — a scroll-driven darkroom microsite where the image develops as you scroll." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F2792B'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <title>Lumen — scroll demo</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%237c6cff'/%3E%3C/svg%3E"
-    />
+    <title>Latent — scroll demo</title>
   </head>
   <body>
-    <div id="app">
-      <div class="progress" data-progress aria-hidden="true"></div>
+    <div id="app" class="latent-root">
+      <div class="grain" data-grain aria-hidden="true"></div>
 
-      <header class="section hero" data-hero>
-        <div class="hero__copy">
-          <h1 data-hero-heading>Focus, made ambient.</h1>
-          <p data-hero-subhead>
-            Lumen turns deep work into a calm, guided ritual — momentum builds
-            while distraction quietly fades.
-          </p>
-          <span class="scroll-cue" data-hero-cue>Scroll to explore ↓</span>
+      <div class="rail" aria-hidden="true">
+        <div class="rail__perf rail__perf--l"></div>
+        <div class="rail__perf rail__perf--r"></div>
+        <div class="rail__fill" data-rail-fill></div>
+        <div class="rail__badge">
+          <span class="rail__label">FRM</span>
+          <span class="rail__num" data-rail-num>000</span>
         </div>
-        <div class="hero__art" data-hero-art aria-hidden="true"></div>
-      </header>
+      </div>
 
-      <section class="scrollstory" data-scrollstory aria-label="How Lumen works">
-        <div class="scrollstory__stage" data-scrollstory-stage>
-          <div class="scrollstory__art" data-scrollstory-art aria-hidden="true"></div>
-          <div class="scrollstory__captions">
-            <p class="scrollstory__caption" data-caption="0">A session begins. The world goes quiet.</p>
-            <p class="scrollstory__caption" data-caption="1">Focus deepens as minutes fold into flow.</p>
-            <p class="scrollstory__caption" data-caption="2">You surface — the work is done.</p>
+      <main class="latent-main">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero__leak" data-leak aria-hidden="true"></div>
+          <div class="hero__art" data-hero-art aria-hidden="true"></div>
+          <div class="hero__glow-cool" aria-hidden="true"></div>
+          <div class="hero__inner">
+            <div class="hero__kicker" data-anim>
+              <span class="hero__dot"></span>
+              <span class="hero__kicker-text">DEVELOPING</span>
+            </div>
+            <h1 class="hero__title" data-anim>Every&nbsp;frame<br />starts in<br />the <span class="hero__title-accent">dark.</span></h1>
+            <div class="hero__meta" data-anim>
+              <span class="hero__meta-text">ISO 400 · f/2.8 · 1/125</span>
+              <span class="hero__rule"></span>
+            </div>
+            <div class="hero__cue" data-anim>
+              <span class="hero__cue-text">SCROLL TO DEVELOP</span>
+              <span class="hero__cue-arrow">↓</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section reveals" data-reveals aria-label="Features">
-        <div class="reveals__grid">
-          <article class="card" data-reveal>
-            <div class="card__index">01</div>
-            <h3>Guided sessions</h3>
-            <p>Structured focus blocks that begin and end with intention.</p>
-          </article>
-          <article class="card" data-reveal>
-            <div class="card__index">02</div>
-            <h3>Ambient soundscapes</h3>
-            <p>Adaptive audio that settles the mind without demanding it.</p>
-          </article>
-          <article class="card" data-reveal>
-            <div class="card__index">03</div>
-            <h3>Quiet analytics</h3>
-            <p>Gentle reflection on your momentum — never a scoreboard.</p>
-          </article>
-        </div>
-      </section>
+        <!-- DEVELOP (signature) -->
+        <section class="develop" data-develop aria-label="Develop">
+          <div class="develop__stage" data-develop-stage>
+            <div class="develop__grid">
+              <div class="develop__frame">
+                <div class="develop__window">
+                  <div class="develop__art" data-develop-art></div>
+                  <div class="develop__bloom" data-develop-bloom aria-hidden="true"></div>
+                  <div class="develop__vignette" aria-hidden="true"></div>
+                </div>
+                <div class="develop__frame-label">FRAME</div>
+              </div>
+              <div class="develop__meta">
+                <div class="develop__counter">
+                  <span class="develop__counter-num" data-develop-counter>000</span>
+                  <span class="develop__counter-denom">/ <span data-develop-denom>120</span></span>
+                </div>
+                <div class="develop__captions">
+                  <span class="develop__caption" data-caption="0">Latent.</span>
+                  <span class="develop__caption develop__caption--fixing" data-caption="1">Fixing.</span>
+                  <span class="develop__caption" data-caption="2">Fixed.</span>
+                </div>
+                <p class="develop__desc">Nothing is on the paper yet. Then it is. The image was always there — waiting under the safelight for the chemistry to catch up.</p>
+                <div class="develop__recipe">D-76 · 20°C · 8 MIN</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <section class="section outro" data-outro aria-label="Get started">
-        <div class="outro__art" data-outro-art aria-hidden="true"></div>
-        <h2>Deep work, on repeat.</h2>
-        <p>Build a focus practice that compounds.</p>
-        <a class="cta" href="#" data-cta>Start a session</a>
-      </section>
+        <!-- CONTACT SHEET -->
+        <section class="contact" aria-label="Contact sheet">
+          <div class="contact__inner">
+            <div class="contact__head reveal" data-exp>
+              <span class="contact__kicker">CONTACT SHEET</span>
+              <span class="contact__title">The exposures that made the cut.</span>
+            </div>
+            <div class="contact__grid">
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">01</span></div>
+                <figcaption class="exposure__exif">f/4 · 1/60 · ISO 200</figcaption>
+              </figure>
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">02</span></div>
+                <figcaption class="exposure__exif">f/2 · 1/250 · ISO 400</figcaption>
+              </figure>
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">03</span></div>
+                <figcaption class="exposure__exif">f/5.6 · 1/125 · ISO 100</figcaption>
+              </figure>
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">04</span></div>
+                <figcaption class="exposure__exif">f/1.8 · 1/500 · ISO 800</figcaption>
+              </figure>
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">05</span></div>
+                <figcaption class="exposure__exif">f/8 · 1/30 · ISO 200</figcaption>
+              </figure>
+              <figure class="exposure reveal" data-exp>
+                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">06</span></div>
+                <figcaption class="exposure__exif">f/2.8 · 1/1000 · ISO 400</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- OUTRO -->
+        <section class="outro" aria-label="Outro">
+          <div class="outro__glow" aria-hidden="true"></div>
+          <div class="outro__print reveal" data-exp>
+            <div class="outro__print-window"><div class="outro__art" data-outro-art></div></div>
+          </div>
+          <span class="outro__edition reveal" data-exp style="transition-delay:.15s">EDITION OF 12 · GELATIN SILVER</span>
+          <h2 class="outro__title reveal" data-exp style="transition-delay:.25s">We shoot on film so the moment has to be true.</h2>
+          <a class="outro__cta reveal" data-exp style="transition-delay:.35s" href="#">BOOK A SITTING <span aria-hidden="true">→</span></a>
+          <span class="outro__footer">LATENT STUDIO · SINCE 2011 · SHOT ON 35MM</span>
+        </section>
+      </main>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
