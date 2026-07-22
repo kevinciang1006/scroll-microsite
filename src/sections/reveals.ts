@@ -1,30 +1,23 @@
-import { gsap, prefersReducedMotion, ScrollTrigger } from '../lib/motion';
+import { prefersReducedMotion, ScrollTrigger } from '../lib/motion';
 
-/** Three cards that fade + translate up as they enter the viewport, once. */
+/** Reveal `[data-exp]` items (contact head, exposures, outro items) on enter,
+ *  once, staggered — the CSS `.reveal`→`.is-in` transition carries the motion. */
 export function initReveals(): void {
-  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
-  if (cards.length === 0) return;
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-exp]'));
+  if (items.length === 0) return;
 
   if (prefersReducedMotion) {
-    gsap.set(cards, { opacity: 1, y: 0 });
+    items.forEach((el) => el.classList.add('is-in'));
     return;
   }
 
-  gsap.set(cards, { opacity: 0, y: 24 });
-  cards.forEach((card, i) => {
+  items.forEach((el, i) => {
+    if (!el.style.transitionDelay) el.style.transitionDelay = (i % 6) * 80 + 'ms';
     ScrollTrigger.create({
-      trigger: card,
+      trigger: el,
       start: 'top 80%',
       once: true,
-      onEnter: () => {
-        gsap.to(card, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power3.out',
-          delay: i * 0.08,
-        });
-      },
+      onEnter: () => el.classList.add('is-in'),
     });
   });
 }

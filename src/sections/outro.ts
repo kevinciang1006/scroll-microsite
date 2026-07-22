@@ -1,7 +1,7 @@
 import { assetUrl, createLottie } from '../lib/lottie';
 import { prefersReducedMotion, refresh, ScrollTrigger } from '../lib/motion';
 
-/** A short outro Lottie that plays once when it scrolls into view. */
+/** Play the outro print Lottie once when it scrolls into view. */
 export function initOutro(): void {
   const art = document.querySelector<HTMLElement>('[data-outro-art]');
   if (!art) return;
@@ -13,9 +13,7 @@ export function initOutro(): void {
   if (!anim) return;
 
   if (prefersReducedMotion) {
-    anim.addEventListener('DOMLoaded', () => {
-      anim.goToAndStop(anim.totalFrames - 1, true);
-    });
+    anim.addEventListener('DOMLoaded', () => anim.goToAndStop(anim.totalFrames - 1, true));
     return;
   }
 
