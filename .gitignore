@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Design export (reference inputs, not part of the built site)
+Latent darkroom scroll microsite/
+Latent darkroom scroll microsite.zip
+CLAUDE_DESIGN_BRIEF.md
