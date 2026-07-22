@@ -1,12 +1,13 @@
 # Lottie assets
 
-Drop three free Lottie JSON files from https://lottiefiles.com/free-animations
-here (exact filenames matter):
+Drop three JSON files here (exact filenames matter):
 
-- `hero.json` — an ambient loop (abstract shapes / gradient blob / orbit).
-- `scroll-story.json` — a clear start→end sequence (rocket launch, chart
-  drawing, character walk, assembly). **This is the one that gets scrubbed.**
-- `outro.json` — a short success / checkmark / celebration.
+- `hero.json` — an ambient loop (light-leak / drifting grain) for the hero's
+  right-bleed slot. If absent, the hero keeps its CSS light-leak (no box).
+- `scroll-story.json` — **the scrubbed print.** It should read as a clear
+  start→end transformation: a latent image resolving from grain to full
+  contrast. This one is driven frame-by-frame by scroll.
+- `outro.json` — a short play-once finish for the outro print.
 
-The site runs and builds without these files — each missing animation shows a
-labelled placeholder box and logs a `console.warn`.
+The site runs and builds without these files — the develop and outro frames show
+a labelled placeholder box and log a `console.warn`.
