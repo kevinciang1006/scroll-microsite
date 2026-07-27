@@ -7,6 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F2792B'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -27,6 +28,14 @@
         </div>
       </div>
 
+      <!--
+        Photography: Unsplash (https://unsplash.com/license — free, attribution
+        not required). Served straight from the Unsplash CDN; sizing, cropping
+        and desaturation (sat=-100) are query params, so nothing is committed.
+        Photo IDs — hero 1698899114629 · develop 1540172777610 ·
+        exposures 1620122303020, 1508186225823, 1618284554746, 1613064756072,
+        1479064118661, 1649366735070 · outro 1506863530036.
+      -->
       <main class="latent-main">
         <!-- HERO -->
         <section class="hero">
@@ -56,7 +65,19 @@
             <div class="develop__grid">
               <div class="develop__frame">
                 <div class="develop__window">
-                  <div class="develop__art" data-develop-art></div>
+                  <img
+                    class="develop__img"
+                    data-develop-img
+                    alt="A portrait resolving out of the dark, eyes emerging from deep shadow"
+                    decoding="async"
+                    src="https://images.unsplash.com/photo-1540172777610-b15b605dd68d?auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.32&q=80&sat=-100&w=1200&h=900"
+                    srcset="
+                      https://images.unsplash.com/photo-1540172777610-b15b605dd68d?auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.32&q=80&sat=-100&w=800&h=600    800w,
+                      https://images.unsplash.com/photo-1540172777610-b15b605dd68d?auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.32&q=80&sat=-100&w=1200&h=900 1200w,
+                      https://images.unsplash.com/photo-1540172777610-b15b605dd68d?auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.32&q=80&sat=-100&w=1600&h=1200 1600w
+                    "
+                    sizes="(max-width: 900px) 92vw, 46vw"
+                  />
                   <div class="develop__bloom" data-develop-bloom aria-hidden="true"></div>
                   <div class="develop__vignette" aria-hidden="true"></div>
                 </div>
@@ -88,27 +109,27 @@
             </div>
             <div class="contact__grid">
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">01</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="Studio portrait of a woman against a dark ground" src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">01</span></div>
                 <figcaption class="exposure__exif">f/4 · 1/60 · ISO 200</figcaption>
               </figure>
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">02</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="Close portrait of a woman with both hands framing her face" src="https://images.unsplash.com/photo-1508186225823-0963cf9ab0de?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">02</span></div>
                 <figcaption class="exposure__exif">f/2 · 1/250 · ISO 400</figcaption>
               </figure>
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">03</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="Low-key portrait of a bearded man in a hooded jacket" src="https://images.unsplash.com/photo-1618284554746-71a7b3e923c6?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">03</span></div>
                 <figcaption class="exposure__exif">f/5.6 · 1/125 · ISO 100</figcaption>
               </figure>
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">04</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="Portrait of a man in a knit cap and round glasses" src="https://images.unsplash.com/photo-1613064756072-52b429a1e06f?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">04</span></div>
                 <figcaption class="exposure__exif">f/1.8 · 1/500 · ISO 800</figcaption>
               </figure>
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">05</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="A Zenit 35mm camera beside a hand pulling a strip of film" src="https://images.unsplash.com/photo-1479064118661-04dd16543243?auto=format&fit=crop&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">05</span></div>
                 <figcaption class="exposure__exif">f/8 · 1/30 · ISO 200</figcaption>
               </figure>
               <figure class="exposure reveal" data-exp>
-                <div class="exposure__frame"><div class="exposure__window"></div><span class="exposure__no">06</span></div>
+                <div class="exposure__frame"><div class="exposure__window"><img class="exposure__img" loading="lazy" decoding="async" alt="Developed strips of 35mm negatives laid out in rows" src="https://images.unsplash.com/photo-1649366735070-8e78a4f86f31?auto=format&fit=crop&q=80&sat=-100&w=600&h=600" /></div><span class="exposure__no">06</span></div>
                 <figcaption class="exposure__exif">f/2.8 · 1/1000 · ISO 400</figcaption>
               </figure>
             </div>
@@ -119,7 +140,21 @@
         <section class="outro" aria-label="Outro">
           <div class="outro__glow" aria-hidden="true"></div>
           <div class="outro__print reveal" data-exp>
-            <div class="outro__print-window"><div class="outro__art" data-outro-art></div></div>
+            <div class="outro__print-window">
+              <img
+                class="outro__img"
+                loading="lazy"
+                decoding="async"
+                alt="The finished print — a portrait against a dark ground"
+                src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=880&h=1100"
+                srcset="
+                  https://images.unsplash.com/photo-1506863530036-1efeddceb993?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=440&h=550   440w,
+                  https://images.unsplash.com/photo-1506863530036-1efeddceb993?auto=format&fit=crop&crop=faces&q=80&sat=-100&w=880&h=1100  880w
+                "
+                sizes="min(100vw, 440px)"
+              />
+              <div class="outro__art" data-outro-art></div>
+            </div>
           </div>
           <span class="outro__edition reveal" data-exp style="transition-delay:.15s">EDITION OF 12 · GELATIN SILVER</span>
           <h2 class="outro__title reveal" data-exp style="transition-delay:.25s">We shoot on film so the moment has to be true.</h2>
