@@ -23,7 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Design export (reference inputs, not part of the built site)
+# Claude Design export (reference inputs, not part of the built site).
+# Lives under docs/design-export/ and docs/ — these patterns have no leading
+# slash, so they match at any depth.
 Latent darkroom scroll microsite/
 Latent darkroom scroll microsite.zip
 CLAUDE_DESIGN_BRIEF.md

@@ -11,11 +11,22 @@
   Component styles live in `src/styles/latent.css` with the export's exact values.
 - Every scroll/entrance animation is guarded by `prefers-reduced-motion`:
   reduced motion renders developed end-states, no pin, no scrubbing.
-- Keep the **develop Lottie frame-scrub isolated in `src/sections/scrollStory.ts`**
-  (counter, caption cross-fades, and safelight bloom are driven from the same
-  scroll progress there). The sprocket rail (`rail.ts`) is the scroll-progress
+- Keep the **develop scroll-scrub isolated in `src/sections/scrollStory.ts`**.
+  It scrubs a CSS `filter` (blur/contrast/brightness) over the print image;
+  counter, caption cross-fades, and safelight bloom are driven from the same
+  scroll progress there. The sprocket rail (`rail.ts`) is the scroll-progress
   indicator.
+- Photography is hotlinked from the Unsplash CDN with sizing/crop/`sat=-100` in
+  the query string; the warm tint is a CSS `filter` in `latent.css`. Don't
+  change the develop image's `crop=focalpoint&fp-y=0.32` — a 4:3 centre or
+  `crop=faces` crop of that vertical portrait cuts the eyes off.
 - Lottie loading goes through `createLottie` (graceful fallback; pass
-  `fallback:false` to keep a bespoke backdrop like the hero light-leak). Asset
-  URLs go through `assetUrl` so they respect the Vite `base`.
+  `fallback:false` where a bespoke visual sits underneath, as the hero
+  light-leak and the outro print photo do). Local asset URLs go through
+  `assetUrl` so they respect the Vite `base` — remote absolute URLs must not.
+- `base` is host-dependent (`vite.config.ts`): `/scroll-microsite/` for GitHub
+  Pages, `/` on Vercel via `VERCEL=1`, or an explicit `BASE_PATH`. Never
+  hard-code the sub-path anywhere else.
+- Reference material and specs live in `docs/`; the repo root stays limited to
+  build config, `README.md`, and this file.
 - `npm run build` (`tsc && vite build`) must be clean before every commit.
