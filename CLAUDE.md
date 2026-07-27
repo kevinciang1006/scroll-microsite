@@ -24,9 +24,11 @@
   `fallback:false` where a bespoke visual sits underneath, as the hero
   light-leak and the outro print photo do). Local asset URLs go through
   `assetUrl` so they respect the Vite `base` — remote absolute URLs must not.
-- `base` is host-dependent (`vite.config.ts`): `/scroll-microsite/` for GitHub
-  Pages, `/` on Vercel via `VERCEL=1`, or an explicit `BASE_PATH`. Never
-  hard-code the sub-path anywhere else.
+- `base` defaults to `/` (`vite.config.ts`) because both live targets serve from
+  a domain root: GitHub Pages via the `public/CNAME` custom domain, and Vercel.
+  A project-path deploy needs `BASE_PATH=/scroll-microsite/`. Never hard-code
+  the sub-path anywhere else — a wrong `base` 404s every CSS/JS asset and the
+  page renders unstyled while remote images keep loading.
 - Reference material and specs live in `docs/`; the repo root stays limited to
   build config, `README.md`, and this file.
 - `npm run build` (`tsc && vite build`) must be clean before every commit.

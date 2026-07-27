@@ -64,24 +64,35 @@ only host-specific setting is Vite's `base`, resolved in `vite.config.ts`:
 
 | Target | `base` | How it's chosen |
 | --- | --- | --- |
-| GitHub Pages | `/scroll-microsite/` | default — the repo-name sub-path |
-| Vercel | `/` | auto-detected via the `VERCEL=1` build env var |
-| Custom domain | your choice | set `BASE_PATH`, e.g. `BASE_PATH=/ npm run build` |
+| GitHub Pages (custom domain) | `/` | default — served from the domain root |
+| Vercel | `/` | default |
+| GitHub Pages (no custom domain) | `/scroll-microsite/` | `BASE_PATH=/scroll-microsite/ npm run build` |
+
+The custom domain is `scroll-microsite.kevinciang.com`, pinned by `public/CNAME`
+so it survives every deploy (Vite copies `public/` into `dist/`).
+
+> **If you ever remove the custom domain**, Pages reverts to serving at
+> `https://<user>.github.io/scroll-microsite/` and you must set
+> `BASE_PATH=/scroll-microsite/` in the workflow. Otherwise every CSS and JS
+> request 404s and the page renders as unstyled HTML — images keep working,
+> because they're absolute Unsplash URLs that don't depend on `base`.
 
 Everything that resolves a runtime asset goes through `assetUrl()`
 (`src/lib/lottie.ts`), which reads `import.meta.env.BASE_URL` — so that one
 value retargets the whole site.
 
 **GitHub Pages.** `.github/workflows/deploy.yml` builds `dist/` and publishes on
-push to `main`. Enable it once under *Settings → Pages → Source: GitHub Actions*.
+push to `main`. Pages must be set to *Settings → Pages → Source: **GitHub
+Actions***; on the legacy "deploy from a branch" setting it publishes the
+repository root instead of the build, which serves the raw source `index.html` —
+no styles at all, and a 404 for `/src/main.ts`.
 
 **Vercel.** Import the repo; `vercel.json` pins the framework preset, build
-command and `dist` output, and `VERCEL=1` flips the base to `/` automatically.
-No dashboard configuration and no environment variables needed.
+command and `dist` output. No dashboard configuration or env vars needed.
 
-Verify a target locally before shipping:
+Verify locally before shipping:
 
 ```bash
-npm run build && npx serve dist          # Pages build — expects the sub-path
-VERCEL=1 npm run build && npx serve dist # Vercel build — serves from root
+npm run build && npx serve dist   # root-served (custom domain / Vercel)
+BASE_PATH=/scroll-microsite/ npm run build   # project-path build
 ```
